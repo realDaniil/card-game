@@ -12,12 +12,12 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: "./index.js",
+    main: "./index.ts",
     welcomeSection: './ts/welcomeSection.ts'
   },
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'build')
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -28,7 +28,7 @@ module.exports = {
       patterns: [
         {
           from: 'images/favicon.ico',
-          to: path.resolve(__dirname, 'dist')
+          to: path.resolve(__dirname, 'build')
         }
       ]
     }),

@@ -7,7 +7,6 @@ export const discardedBtn = document.getElementById('discarded-button')!
 export const botMessage = document.getElementById('bot-message')!
 export const playerTakeBtn = document.getElementById('i-take-button')!
 export const playerAndBotTurnP = document.getElementById('player-and-bot-turn-p')!
-// export const trumpSuitElement = document.getElementById('trump-suit')!
 export const winText = document.getElementById('win-text')!
 export const botThinksElement = document.getElementById('bot-thinks')!
 export const cardsCountElement = document.getElementById('cards-count')!

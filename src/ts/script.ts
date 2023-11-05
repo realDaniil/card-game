@@ -33,7 +33,12 @@ const updateDeckDiv = () => {
   }
   if (deck.length) {
     cardsCountElement.innerHTML = deck.length + ''
-  } else cardsCountElement.innerHTML = ''
+  } else {
+    cardsCountElement.innerHTML = trumpSuit
+    cardsCountElement.style.fontSize = '40px'
+    cardsCountElement.style.top = '50%'
+    cardsCountElement.style.transform = 'translateY(-50%)'
+  }
 }
 
 const dealingCards = (targetArray: string[], source: number | string[]) => {
