@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="favicon.ico" type="image/ico">
+  <title>Дурак</title>
+</head>
+
+<body>
+  <div id="win-section">
+    <canvas id="win-canvas"></canvas>
+    <div class="win__content-holder">
+      <h2 id="win-text">PLayer Won</h2>
+      <button id="win-btn" class="blue">Play again</button>
+    </div>
+  </div>
+  <div id="start-section">
+    <canvas id="start-canvas"></canvas>
+    <div class="start-section__menu-holder">
+      <div class="start-section__menu">
+        <h1>Durak</h1>
+        <h2>Card Game</h2>
+        <button id="start-game-button">Start game</button>
+      </div>
+    </div>
+  </div>
+  <div id="game-section">
+    <canvas id="game-canvas"></canvas>
+    <div id="bot-deck" class="hand"></div>
+    <div class="deck-holder">
+      <p id="cards-count"></p>
+      <div id="deck"></div>
+    </div>
+    <div id="table">
+      <div class="table__card-holder"></div>
+      <div class="table__card-holder"></div>
+      <div class="table__card-holder"></div>
+      <div class="table__card-holder"></div>
+      <div class="table__card-holder"></div>
+      <div class="table__card-holder"></div>
+    </div>
+    <div class='actionsBtnsHolder'>
+      <div id="bot-thinks">
+        <p>Bot thinks</p>
+      </div>
+    <p id="bot-message"></p>
+    <button id="i-take-button">I take</button>
+      <button id="pass-button">Pass</button>
+      <button id="discarded-button">Discarded</button>
+      <p id="player-and-bot-turn-p"></p>
+    </div>
+    <div id="player-deck" class="hand"></div>
+  </div>
+</body>
+
+</html>
