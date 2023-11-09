@@ -2,7 +2,7 @@ import ConfettiGenerator from "confetti-js"
 import hat from '../images/hat.svg'
 
 export const renderWinSection = (isBotWin: boolean) => {
-  document.getElementById('win-btn').className += !isBotWin && ' blue' 
+  document.getElementById('win-btn')!.className += !isBotWin && ' blue' 
   const confettiElement = document.getElementById('win-canvas')
   const confettiSettings = {
     target: confettiElement,
@@ -26,10 +26,10 @@ export const renderWinSection = (isBotWin: boolean) => {
   const confetti = new ConfettiGenerator(confettiSettings)
   confetti.render()
   setTimeout(() => {
-    document.getElementById('win-section').style.display = 'flex'
+    document.getElementById('win-section')!.style.display = 'flex'
   }, 1000)
 }
 
-document.getElementById('win-btn').addEventListener('click', () => {
+document.getElementById('win-btn')!.addEventListener('click', () => {
   window.location.reload()
 })

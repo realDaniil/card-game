@@ -1,4 +1,5 @@
 import { botDeckDiv, discardedBtn, tableDiv } from "./htmlElements.ts"
+import { cleanSelectCard } from "./playerMove.ts"
 import {
   isBotDefending,
   tableRanks,
@@ -22,13 +23,13 @@ import {
 import { canPlayCard, cardsSorting, isAttackSuccessful, isWin, botThinks } from "./utils.ts"
 
 export const botMove = () => {
-  if ((!isBotQueue && allTableDeck.length) || isBotQueue) botThinks(true) 
+  if ((!isBotQueue && allTableDeck.length) || isBotQueue) botThinks(true)
   setTimeout(() => {
     if (isBotDefending && !isBotTake) {
       for (let i = 0; i < notBrokenDeckCards.length; i++) {
         for (let j = 0; j < botDeck.length; j++) {
           if (isAttackSuccessful(botDeck[j], notBrokenDeckCards[i], trumpSuit)) {
-            notBrokenDeckCards.splice(notBrokenDeckCards[i], 1)
+            notBrokenDeckCards.splice(i, 1)
             allTableDeck.push(botDeck[j])
             tableRanks.push(botDeck[j].slice(0, -1))
             botDeckDiv.children[j].className = 'card defense'
@@ -65,6 +66,7 @@ export const botMove = () => {
         attackCard = attackArray[0]
       }
       if (!notBrokenDeckCards.length && attackCard === undefined) {
+        cleanSelectCard() // для фикса бага с выбранной картой при обновлении колод
         dealingCardsToBotAndPlayer()
         setIsBotQueue(false)
         cleanTableDiv(true)
@@ -85,6 +87,7 @@ export const botMove = () => {
         botDeck.splice(cardIndex, 1)
         botMove()
       } else if (botAttackCards.length > 5 && !notBrokenDeckCards.length) {
+        cleanSelectCard()
         dealingCardsToBotAndPlayer()
         setIsBotQueue(false)
         cleanTableDiv(true)

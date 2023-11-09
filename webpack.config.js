@@ -4,16 +4,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const isDev = process.env.NODE_DEV === 'development'
-const isProd = !isDev
-console.log('isDev', isDev)
-
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: "./index.ts",
-    welcomeSection: './ts/welcomeSection.ts'
+    main: "./index.ts"
   },
   output: {
     filename: '[name].[contenthash].js',

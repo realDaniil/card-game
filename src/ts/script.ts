@@ -2,15 +2,17 @@ import { botMove } from "./botMove.ts"
 import { playerMove } from './playerMove.ts'
 import { cardsSorting, changeSuitColor, shuffleDeck } from "./utils.ts"
 import { botDeckDiv, botMessage, cardsCountElement, deckDiv, discardedBtn, passBtn, playerAndBotTurnP, playerDeckDiv, playerTakeBtn, tableDiv } from './htmlElements.ts'
+import { selectLang } from "./translate.ts"
+import translateArr from '../lang.json'
 
-const deck = []
-const tableRanks = []
-const allTableDeck = []
-const notBrokenDeckCards = []
-const playerAttackCards = []
-const botAttackCards = []
-const playerDeck = []
-const botDeck = []
+const deck:string[] = []
+const tableRanks:string[] = []
+const allTableDeck:string[] = []
+const notBrokenDeckCards:string[] = []
+const playerAttackCards:string[] = []
+const botAttackCards:string[] = []
+const playerDeck:string[] = []
+const botDeck:string[] = []
 
 let isBotQueue: boolean, isBotDefending: boolean, isBotTake: boolean
 let trumpSuit: string
@@ -85,10 +87,10 @@ const dealingCardsToBotAndPlayer = () => {
 
 const changeActionBtns = () => {
   if (isBotQueue) {
-    playerAndBotTurnP.innerText = "Bot's turn"
+    playerAndBotTurnP.innerText = translateArr['bots-turn'][selectLang]
     playerTakeBtn.style.display = 'block'
   } else {
-    playerAndBotTurnP.innerText = "Your turn"
+    playerAndBotTurnP.innerText = translateArr['your-turn'][selectLang]
     playerTakeBtn.style.display = 'none'
   }
   if (isBotTake) {
@@ -123,11 +125,11 @@ const startGame = () => {
 
 const cleanTableDiv = (isInTrash: boolean = false) => {
   if (isInTrash) {
-    const cards = document.querySelectorAll('#table .card')
+    const cards = Array.from(document.querySelectorAll('#table .card'))
     for (let card of cards) {
-      card.className += ' trash'
-      card.style.left = card.getBoundingClientRect().x + 'px'
-      card.style.top = card.getBoundingClientRect().y + 'px'
+      card.className += ' trash';
+      (card as HTMLElement).style.left = card.getBoundingClientRect().x + 'px';
+      (card as HTMLElement).style.top = card.getBoundingClientRect().y + 'px';
       document.body.append(card)
       setTimeout(() => {
         card.remove()

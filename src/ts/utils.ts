@@ -1,6 +1,8 @@
-import { botThinksElement, tableDiv, winText } from "./htmlElements.ts";
+import { botThinksElement, tableDiv, winText } from "./htmlElements.ts"
 import { botDeck, deck, playerDeck, tableRanks, trumpSuit } from "./script.ts"
-import { renderWinSection } from "./winSection.ts";
+import { renderWinSection } from "./winSection.ts"
+import translateArr from '../lang.json'
+import { selectLang } from "./translate.ts"
 
 export const shuffleDeck = (array: string[]) => {
   array.length = 0
@@ -109,11 +111,11 @@ export const botThinks = (isThink: boolean) => {
 export const isWin = () => {
   if (!deck.length) {
     if (!playerDeck.length) {
-      winText.innerHTML = 'Player won'
+      winText.innerHTML = translateArr['player-won'][selectLang]
       winText.className += ' blue'
       renderWinSection(false)
     } else if (!botDeck.length) {
-      winText.innerHTML = 'Bot won'
+      winText.innerHTML = translateArr['bot-won'][selectLang]
       winText.className += ' red'
       renderWinSection(true)
     }

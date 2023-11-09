@@ -33,3 +33,26 @@
 .start-section__menu-holder {
   z-index: 1;
 }
+
+.lang-holder {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    color: $red-color;
+    font-weight: 600;
+    padding: 0.5rem;
+    cursor: pointer;
+    box-shadow: none;
+    transition: 0.2s;
+  }
+
+  .select {
+    color: white;
+    text-shadow: none;
+  }
+}

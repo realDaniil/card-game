@@ -22,8 +22,11 @@ const resetPlayerCardsStyles = () => {
   }
 }
 
+let selectedCard: HTMLElement
+export const cleanSelectCard = () => {
+  selectedCard = null
+}
 export const playerMove = () => {
-  let selectedCard: HTMLElement
   let temporaryCard: HTMLElement | null
   let offsetX: number, offsetY: number, firstY: number, isTouch: boolean, clientX: number, clientY: number
   const downHandler = (e) => {
@@ -73,7 +76,7 @@ export const playerMove = () => {
     resetPlayerCardsStyles()
     if (selectedCard) {
       selectedCard.style.display = 'none'
-      let elementUnderCard = document.elementFromPoint(clientX, clientY)
+      let elementUnderCard = document.elementFromPoint(clientX, clientY)!
       if (elementUnderCard.classList.contains('card')) {
         elementUnderCard = elementUnderCard.parentElement
       }

@@ -9,23 +9,28 @@
 
 <body>
   <div id="plug">
-    <p class="plug-title">Please use a widescreen device</p>
+    <p class="lng-plug plug-title">Please use a widescreen device</p>
   </div>
   <div id="win-section">
     <canvas id="win-canvas"></canvas>
     <div class="win__content-holder">
-      <h2 id="win-text">PLayer Won</h2>
-      <button id="win-btn" class="blue">Play again</button>
+      <h2 id="win-text" class="lng-player-won">PLayer Won</h2>
+      <button id="win-btn" class="lng-play-again blue">Play again</button>
     </div>
   </div>
   <div id="start-section">
     <canvas id="start-canvas"></canvas>
     <div class="start-section__menu-holder">
       <div class="start-section__menu">
-        <h1>Durak</h1>
-        <h2>Card Game</h2>
-        <button id="start-game-button">Start game</button>
+        <h1 class="lng-durak">Durak</h1>
+        <h2 class="lng-card-game">Card Game</h2>
+        <button id="start-game-button" class="lng-start-game">Start game</button>
       </div>
+    </div>
+    <div class="lang-holder">
+      <div data-lang="en" class="lang red">EN</div>
+      <div data-lang="ua" class="lang red">UA</div>
+      <div data-lang="ru" class="lang red">RU</div>
     </div>
   </div>
   <div id="game-section">
@@ -45,12 +50,12 @@
     </div>
     <div class='actionsBtnsHolder'>
       <div id="bot-thinks">
-        <p>Bot thinks</p>
+        <p class="lng-bot-thinks">Bot thinks</p>
       </div>
       <p id="bot-message"></p>
-      <button id="i-take-button">I take</button>
-      <button id="pass-button">Pass</button>
-      <button id="discarded-button">Discarded</button>
+      <button id="i-take-button" class="lng-i-take">I take</button>
+      <button id="pass-button" class="lng-pass">Pass</button>
+      <button id="discarded-button" class="lng-discarded">Discarded</button>
       <p id="player-and-bot-turn-p"></p>
     </div>
     <div id="player-deck" class="hand"></div>
